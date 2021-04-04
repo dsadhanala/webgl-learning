@@ -2,6 +2,10 @@
 
 Build simple examples to learn Babylon.js
 
+## Demos
+
+[Solar system](https://apps.pixeltreat.com/solar-system/)
+
 ## Usage
 
 ### Start local development server
