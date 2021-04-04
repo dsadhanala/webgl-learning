@@ -1,0 +1,24 @@
+{
+  "name": "babylon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babylonjs/core": "^4.2.0"
+  },
+  "scripts": {
+    "start": "wmr -p 3000",
+    "build": "wmr build --prerender",
+    "serve": "wmr serve",
+    "dev": "vite",
+    "build-vite": "vite build --base=./src/index.html",
+    "serve-vite": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.1.5",
+    "wmr": "^1.5.1"
+  }
+}
