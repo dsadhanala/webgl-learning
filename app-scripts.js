@@ -1,4 +1,3 @@
-import "tslib";
 import { Engine, Scene, SceneLoader } from "@babylonjs/core";
 // import { introModule } from './modules/intro';
 import { solarSystem } from './modules/solar-system';

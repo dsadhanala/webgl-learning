@@ -2,7 +2,8 @@ import { ArcRotateCamera, HemisphericLight, Vector3, Mesh, StandardMaterial, Tex
 
 export const solarSystem = ({ canvas, scene, isNight, texturesPath }) => {
     scene.clearColor = new Color3(0,0,0);
-    const camera = new ArcRotateCamera('camera', 0, 0, 15, Vector3.Zero(), scene);
+    const camera = new ArcRotateCamera('camera', 0, 0, 0, Vector3.Zero(), scene);
+    camera.setPosition(new Vector3(0, 0, 15)); // override camera position
     camera.attachControl(canvas); // user should be able to control from canvas
     camera.upperRadiusLimit = 50;
 
@@ -79,16 +80,19 @@ export const solarSystem = ({ canvas, scene, isNight, texturesPath }) => {
     // earth
     const earth = Mesh.CreateSphere('earth', 16, 1, scene);
     const angle = 0.01;
-    var earthAxis = new Vector3(Math.sin(23 * Math.PI/180), Math.cos(23 * Math.PI/180), 0);
+    var earthAxis = new Vector3(Math.sin(0 * Math.PI/180), Math.cos(0 * Math.PI/180), 0);
 
     earth.position.x = 3.25;
     earth.material = earthMaterial;
     // var axisLine = MeshBuilder.CreateLines("axis", {points:[earthAxis.scale(-5), earthAxis.scale(5)]}, scene);
-    earth.rotate(earthAxis, angle, Space.WORLD);
     earth.orbit = {
         radius: earth.position.x,
         speed: 0.007,
         angle: 0.01
+    };
+
+    scene.registerBeforeRender = () => {
+        earth.rotate(earthAxis, angle, Space.WORLD);
     };
 
     // 4. mars material

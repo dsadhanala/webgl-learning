@@ -12,11 +12,8 @@ html {
 }
 
 body {
+    background-color:#000;
     font: normal normal 1.4rem/1.6 "Arial", san-serif;
-}
-
-h1 {
-    margin: 2rem;
 }
 
 #render-canvas {
